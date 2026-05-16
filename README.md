@@ -3,7 +3,11 @@ Edge-Assisted Genetic Algorithm for Dynamic Multi-Objective Urban Routing — Da
 # Edge-Assisted Genetic Algorithm for Dynamic Multi-Objective Urban Routing — Dataset & Code Repository
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![DOI](https://img.shields.io/badge/DOI-10.48084%2Fetasr.XXXX-blue)](https://doi.org/10.48084/etasr.XXXX)
+[![DOI](https://img.shields.io/badge/DOI-10.48084%2Fetasr.XXXX-blue)](https://doi.org/10.48084/etasr.XXXX
+        
+        
+        
+        )
 
 ## Overview
 
@@ -34,7 +38,6 @@ It provides the real-world traffic dataset collected from Bethlehem City (Palest
 │   └── utils.py                       # Preprocessing & normalization utilities
 ├── sumo_scenarios/
 │   ├── bethlehem_network.net.xml      # SUMO road network – Bethlehem
-│   ├── hebron_network.net.xml         # SUMO road network – Hebron
 │   ├── routes_baseline.rou.xml        # Vehicle routes – baseline scenario
 │   └── *.sumocfg                      # SUMO configuration files per scenario
 └── README.md
