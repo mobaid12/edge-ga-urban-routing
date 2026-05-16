@@ -3,9 +3,7 @@ Edge-Assisted Genetic Algorithm for Dynamic Multi-Objective Urban Routing — Da
 # Edge-Assisted Genetic Algorithm for Dynamic Multi-Objective Urban Routing — Dataset & Code Repository
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![DOI](https://img.shields.io/badge/DOI-10.48084%2Fetasr.XXXX-blue)](https://doi.org/10.48084/etasr.XXXX
-        
-        )
+[![DOI](https://img.shields.io/badge/DOI-10.48084%2Fetasr.XXXX-blue)](https://doi.org/10.48084/etasr.XXXX)
 
 ## Overview
 
@@ -17,6 +15,8 @@ This repository accompanies the paper:
 > DOI: [10.48084/etasr.XXXX
         
         ](https://doi.org/10.48084/etasr.XXXX
+        
+        
         
         )
 
