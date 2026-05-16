@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  routes_baseline.rou.xml
+  =======================
+  Vehicle demand and route definitions for the baseline scenario (SCN_001).
+  Bethlehem City urban network – two-week average weekday morning peak demand.
+
+  Paper: "Edge-Assisted Genetic Algorithm for Dynamic Multi-Objective Urban Routing"
+  Repository: https://github.com/MahmoudObaid-AAUP/edge-ga-urban-routing
+
+  Simulation period  : 07:00 – 09:00 (morning peak, 7200 seconds)
+  Vehicle classes    : passenger (60%), taxi (10%), bus (8%), truck (10%), motorcycle (12%)
+  Total demand       : 1,000 vehicles (representative of observed counts)
+  Departure model    : Poisson distributed arrivals (rate calibrated from trajectories.csv)
+
+  Notes:
+  - Routes are expressed as ordered edge sequences (SUMO convention).
+  - <flow> elements generate Poisson-distributed vehicle streams.
+  - Signal timings are initialised at default values; the GA overrides them at runtime.
+  - See also: SCN_001_baseline.sumocfg (configuration file for this scenario).
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         VEHICLE TYPE DEFINITIONS
+    ═══════════════════════════════════════════════════════════════ -->
+
+    <!-- Passenger car -->
+    <vType id="passenger"
+           accel="2.6" decel="4.5" sigma="0.5"
+           length="4.5" minGap="2.5" maxSpeed="16.7"
+           speedFactor="normc(1,0.1,0.6,1.5)"
+           carFollowModel="Krauss"
+           lcStrategic="1.0" lcCooperative="1.0"
+           color="0.2,0.5,0.9"/>
+
+    <!-- Taxi -->
+    <vType id="taxi"
+           accel="2.8" decel="4.5" sigma="0.4"
+           length="4.5" minGap="2.0" maxSpeed="16.7"
+           speedFactor="normc(1.05,0.1,0.8,1.5)"
+           carFollowModel="Krauss"
+           color="0.9,0.8,0.0"/>
+
+    <!-- City bus -->
+    <vType id="bus"
+           accel="1.2" decel="3.5" sigma="0.2"
+           length="12.0" minGap="3.0" maxSpeed="12.5"
+           speedFactor="normc(0.85,0.05,0.7,1.0)"
+           carFollowModel="Krauss"
+           color="0.0,0.7,0.3"/>
+
+    <!-- Truck / heavy goods vehicle -->
+    <vType id="truck"
+           accel="1.0" decel="3.0" sigma="0.2"
+           length="8.5" minGap="3.5" maxSpeed="11.1"
+           speedFactor="normc(0.85,0.05,0.7,1.0)"
+           carFollowModel="Krauss"
+           color="0.6,0.4,0.2"/>
+
+    <!-- Motorcycle -->
+    <vType id="motorcycle"
+           accel="3.5" decel="5.0" sigma="0.6"
+           length="2.2" minGap="1.5" maxSpeed="19.4"
+           speedFactor="normc(1.1,0.15,0.7,1.6)"
+           carFollowModel="Krauss"
+           color="0.8,0.2,0.2"/>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         NAMED ROUTE DEFINITIONS
+         (Most-travelled corridors derived from vehicle_trajectories.csv)
+    ═══════════════════════════════════════════════════════════════ -->
+
+    <!-- Corridor 1: Jerusalem Gate → Manger Square (primary arterial) -->
+    <route id="R_C01_NS" edges="HE11_HE10 E15_E01 E01_E13"/>
+    <route id="R_C01_SN" edges="E13_E01 E01_E15 E15_E14"/>
+
+    <!-- Corridor 2: Star Street → Beit Sahour (east cross-city) -->
+    <route id="R_C02_EW" edges="E03_E04 E04_E05 E05_E06"/>
+    <route id="R_C02_WE" edges="E06_E05 E05_E04 E04_E03"/>
+
+    <!-- Corridor 3: Manger Square Loop -->
+    <route id="R_C03_LOOP" edges="E01_E06 E06_E07 E07_E08 E08_E09 E09_E13 E13_E01"/>
+
+    <!-- Corridor 4: Beit Jala → Old Market → Manger Square -->
+    <route id="R_C04_BJOM" edges="E15_E12 E12_E13 E13_E01"/>
+    <route id="R_C04_OMBJ" edges="E01_E13 E13_E12 E12_E15"/>
+
+    <!-- Corridor 5: Hebron Road South → City Centre -->
+    <route id="R_C05_SC" edges="E02_E01 E01_E13"/>
+    <route id="R_C05_CS" edges="E13_E01 E01_E02"/>
+
+    <!-- Corridor 6: Freres Street → Doha Roundabout (north bypass) -->
+    <route id="R_C06_FD"  edges="E08_E09 E09_E10"/>
+    <route id="R_C06_DF"  edges="E10_E09 E09_E08"/>
+
+    <!-- Corridor 7: Caritas Street cross-city -->
+    <route id="R_C07_CE"  edges="E06_E01 E01_E13 E13_E14"/>
+    <route id="R_C07_EC"  edges="E14_E13 E13_E01 E01_E06"/>
+
+    <!-- Corridor 8: Al-Farahieh – Star Street short cut -->
+    <route id="R_C08_FS"  edges="E07_E03 E03_E02"/>
+    <route id="R_C08_SF"  edges="E02_E03 E03_E07"/>
+
+    <!-- Corridor 9: Beit Sahour – Shepherd's Field Road -->
+    <route id="R_C09_BSF" edges="E05_E06 E06_E01 E01_E13 E13_E14"/>
+    <route id="R_C09_FSB" edges="E14_E13 E13_E01 E01_E06 E06_E05"/>
+
+    <!-- Corridor 10: Artas Road – Rachel's Tomb (southern loop) -->
+    <route id="R_C10_AR"  edges="E12_E11 E11_E10 E10_E09"/>
+    <route id="R_C10_RA"  edges="E09_E10 E10_E11 E11_E12"/>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         VEHICLE FLOWS
+         (Poisson-distributed departures over 7200-second morning peak)
+         Total vehicles ≈ 1,000 across all vehicle types
+    ═══════════════════════════════════════════════════════════════ -->
+
+    <!-- ── PASSENGER CARS (60% → 600 vehicles) ── -->
+    <flow id="pass_C01_NS" type="passenger" route="R_C01_NS"
+          begin="0"    end="7200" number="72"  departSpeed="max" departLane="best"/>
+    <flow id="pass_C01_SN" type="passenger" route="R_C01_SN"
+          begin="0"    end="7200" number="60"  departSpeed="max" departLane="best"/>
+    <flow id="pass_C02_EW" type="passenger" route="R_C02_EW"
+          begin="600"  end="7200" number="55"  departSpeed="max" departLane="best"/>
+    <flow id="pass_C02_WE" type="passenger" route="R_C02_WE"
+          begin="600"  end="7200" number="48"  departSpeed="max" departLane="best"/>
+    <flow id="pass_C03"    type="passenger" route="R_C03_LOOP"
+          begin="0"    end="7200" number="42"  departSpeed="max" departLane="best"/>
+    <flow id="pass_C04_BJ" type="passenger" route="R_C04_BJOM"
+          begin="300"  end="6900" number="50"  departSpeed="max" departLane="best"/>
+    <flow id="pass_C04_OM" type="passenger" route="R_C04_OMBJ"
+          begin="300"  end="6900" number="44"  departSpeed="max" departLane="best"/>
+    <flow id="pass_C05_SC" type="passenger" route="R_C05_SC"
+          begin="0"    end="7200" number="68"  departSpeed="max" departLane="best"/>
+    <flow id="pass_C05_CS" type="passenger" route="R_C05_CS"
+          begin="0"    end="7200" number="56"  departSpeed="max" departLane="best"/>
+    <flow id="pass_C06_FD" type="passenger" route="R_C06_FD"
+          begin="900"  end="6300" number="38"  departSpeed="max" departLane="best"/>
+    <flow id="pass_C06_DF" type="passenger" route="R_C06_DF"
+          begin="900"  end="6300" number="32"  departSpeed="max" departLane="best"/>
+    <flow id="pass_C07_CE" type="passenger" route="R_C07_CE"
+          begin="0"    end="7200" number="35"  departSpeed="max" departLane="best"/>
+
+    <!-- ── TAXIS (10% → 100 vehicles) ── -->
+    <flow id="taxi_C01_NS" type="taxi" route="R_C01_NS"
+          begin="0"    end="7200" number="15"  departSpeed="max" departLane="best"/>
+    <flow id="taxi_C04_BJ" type="taxi" route="R_C04_BJOM"
+          begin="0"    end="7200" number="12"  departSpeed="max" departLane="best"/>
+    <flow id="taxi_C05_SC" type="taxi" route="R_C05_SC"
+          begin="300"  end="6900" number="18"  departSpeed="max" departLane="best"/>
+    <flow id="taxi_C07_CE" type="taxi" route="R_C07_CE"
+          begin="0"    end="7200" number="14"  departSpeed="max" departLane="best"/>
+    <flow id="taxi_C09"    type="taxi" route="R_C09_BSF"
+          begin="600"  end="6600" number="11"  departSpeed="max" departLane="best"/>
+    <flow id="taxi_C03"    type="taxi" route="R_C03_LOOP"
+          begin="0"    end="7200" number="10"  departSpeed="max" departLane="best"/>
+    <flow id="taxi_C02_EW" type="taxi" route="R_C02_EW"
+          begin="0"    end="7200" number="10"  departSpeed="max" departLane="best"/>
+    <flow id="taxi_C10_AR" type="taxi" route="R_C10_AR"
+          begin="0"    end="7200" number="10"  departSpeed="max" departLane="best"/>
+
+    <!-- ── BUSES (8% → 80 vehicles) ── -->
+    <flow id="bus_C01_NS"  type="bus" route="R_C01_NS"
+          begin="0"    end="7200" number="18"  departSpeed="0" departLane="best"/>
+    <flow id="bus_C01_SN"  type="bus" route="R_C01_SN"
+          begin="0"    end="7200" number="18"  departSpeed="0" departLane="best"/>
+    <flow id="bus_C05_SC"  type="bus" route="R_C05_SC"
+          begin="600"  end="6600" number="14"  departSpeed="0" departLane="best"/>
+    <flow id="bus_C05_CS"  type="bus" route="R_C05_CS"
+          begin="600"  end="6600" number="14"  departSpeed="0" departLane="best"/>
+    <flow id="bus_C02_EW"  type="bus" route="R_C02_EW"
+          begin="0"    end="7200" number="8"   departSpeed="0" departLane="best"/>
+    <flow id="bus_C07_CE"  type="bus" route="R_C07_CE"
+          begin="0"    end="7200" number="8"   departSpeed="0" departLane="best"/>
+
+    <!-- ── TRUCKS (10% → 100 vehicles, pre-peak only) ── -->
+    <flow id="truck_C02_EW" type="truck" route="R_C02_EW"
+          begin="0"   end="3600" number="20"  departSpeed="0" departLane="best"/>
+    <flow id="truck_C02_WE" type="truck" route="R_C02_WE"
+          begin="0"   end="3600" number="20"  departSpeed="0" departLane="best"/>
+    <flow id="truck_C08_FS" type="truck" route="R_C08_FS"
+          begin="0"   end="3600" number="18"  departSpeed="0" departLane="best"/>
+    <flow id="truck_C10_AR" type="truck" route="R_C10_AR"
+          begin="0"   end="3600" number="22"  departSpeed="0" departLane="best"/>
+    <flow id="truck_C06_FD" type="truck" route="R_C06_FD"
+          begin="0"   end="2700" number="10"  departSpeed="0" departLane="best"/>
+    <flow id="truck_C09"    type="truck" route="R_C09_BSF"
+          begin="0"   end="2700" number="10"  departSpeed="0" departLane="best"/>
+
+    <!-- ── MOTORCYCLES (12% → 120 vehicles) ── -->
+    <flow id="moto_C01_NS"  type="motorcycle" route="R_C01_NS"
+          begin="0"    end="7200" number="22"  departSpeed="max" departLane="best"/>
+    <flow id="moto_C04_BJ"  type="motorcycle" route="R_C04_BJOM"
+          begin="0"    end="7200" number="18"  departSpeed="max" departLane="best"/>
+    <flow id="moto_C03"     type="motorcycle" route="R_C03_LOOP"
+          begin="300"  end="6900" number="16"  departSpeed="max" departLane="best"/>
+    <flow id="moto_C05_SC"  type="motorcycle" route="R_C05_SC"
+          begin="0"    end="7200" number="20"  departSpeed="max" departLane="best"/>
+    <flow id="moto_C07_CE"  type="motorcycle" route="R_C07_CE"
+          begin="0"    end="7200" number="15"  departSpeed="max" departLane="best"/>
+    <flow id="moto_C09"     type="motorcycle" route="R_C09_BSF"
+          begin="600"  end="6600" number="14"  departSpeed="max" departLane="best"/>
+    <flow id="moto_C06_FD"  type="motorcycle" route="R_C06_FD"
+          begin="0"    end="7200" number="15"  departSpeed="max" departLane="best"/>
+
+</routes>

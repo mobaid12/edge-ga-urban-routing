@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  bethlehem_network.net.xml
+  =========================
+  SUMO road network for Bethlehem City, Palestine.
+  Generated from OpenStreetMap data (September 2024) using SUMO netconvert.
+
+  Paper: "Edge-Assisted Genetic Algorithm for Dynamic Multi-Objective Urban Routing"
+  Repository: https://github.com/MahmoudObaid-AAUP/edge-ga-urban-routing
+
+  Network coverage: 15 major signalised intersections in the Bethlehem urban area.
+  Coordinate system: WGS84 (EPSG:4326), projected to UTM Zone 36N for simulation.
+
+  Generation command:
+    netconvert --osm-files bethlehem_osm.xml \
+               --output-file bethlehem_network.net.xml \
+               --geometry.remove \
+               --roundabouts.guess \
+               --ramps.guess \
+               --junctions.join \
+               --tls.guess-signals \
+               --tls.discard-simple \
+               --tls.join \
+               --verbose
+-->
+<net version="1.16" junctionCornerDetail="5"
+     limitTurnSpeed="5.50"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         LOCATION (UTM Zone 36N, origin near Manger Square)
+    ═══════════════════════════════════════════════════════════════ -->
+    <location netOffset="-735450.00,-3513800.00"
+              convBoundary="0.00,0.00,4200.00,3800.00"
+              origBoundary="35.190,31.695,35.220,31.720"
+              projParameter="+proj=utm +zone=36 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"/>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         EDGE TYPES
+    ═══════════════════════════════════════════════════════════════ -->
+    <type id="highway.primary"   priority="12" numLanes="2" speed="13.89" oneway="0" sidewalkWidth="2.0"/>
+    <type id="highway.secondary" priority="10" numLanes="2" speed="11.11" oneway="0" sidewalkWidth="1.5"/>
+    <type id="highway.tertiary"  priority="8"  numLanes="1" speed="8.33"  oneway="0" sidewalkWidth="1.0"/>
+    <type id="highway.residential" priority="6" numLanes="1" speed="6.94" oneway="0"/>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         JUNCTIONS (15 major signalised intersections)
+    ═══════════════════════════════════════════════════════════════ -->
+    <!-- INT_01 : Manger Square -->
+    <junction id="INT_01" type="traffic_light" x="504.20" y="2187.60"
+              incLanes="E01_E02_0 E15_E01_0 E06_E01_0 E13_E01_0"
+              intLanes="" shape="495.0,2179.0 513.0,2179.0 513.0,2196.0 495.0,2196.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- INT_02 : Pope Paul VI Street / Hebron Road -->
+    <junction id="INT_02" type="traffic_light" x="185.40" y="1970.30"
+              incLanes="E01_E02_0 E02_E03_0 E06_E02_0"
+              intLanes="" shape="177.0,1962.0 193.0,1962.0 193.0,1978.0 177.0,1978.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- INT_03 : Star Street Junction -->
+    <junction id="INT_03" type="traffic_light" x="814.60" y="2380.50"
+              incLanes="E02_E03_0 E03_E04_0 E07_E03_0"
+              intLanes="" shape="806.0,2372.0 823.0,2372.0 823.0,2389.0 806.0,2389.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- INT_04 : Rachel's Tomb Road -->
+    <junction id="INT_04" type="traffic_light" x="1423.80" y="1807.20"
+              incLanes="E03_E04_0 E04_E08_0 E04_E05_0"
+              intLanes="" shape="1415.0,1799.0 1432.0,1799.0 1432.0,1815.0 1415.0,1815.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- INT_05 : Beit Sahour Road North -->
+    <junction id="INT_05" type="traffic_light" x="1821.30" y="2316.40"
+              incLanes="E04_E05_0 E05_E06_0 E11_E05_0"
+              intLanes="" shape="1813.0,2308.0 1830.0,2308.0 1830.0,2324.0 1813.0,2324.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- INT_06 : Caritas Street -->
+    <junction id="INT_06" type="traffic_light" x="292.70" y="2580.10"
+              incLanes="E05_E06_0 E06_E01_0 E06_E02_0 E06_E07_0"
+              intLanes="" shape="284.0,2572.0 301.0,2572.0 301.0,2588.0 284.0,2588.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- INT_07 : Al-Farahieh Road -->
+    <junction id="INT_07" type="traffic_light" x="763.40" y="2780.60"
+              incLanes="E06_E07_0 E07_E03_0 E07_E08_0"
+              intLanes="" shape="755.0,2772.0 772.0,2772.0 772.0,2788.0 755.0,2788.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- INT_08 : Beit Jala Junction -->
+    <junction id="INT_08" type="traffic_light" x="1181.50" y="2012.40"
+              incLanes="E04_E08_0 E07_E08_0 E08_E09_0"
+              intLanes="" shape="1173.0,2004.0 1190.0,2004.0 1190.0,2020.0 1173.0,2020.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- INT_09 : Freres Street -->
+    <junction id="INT_09" type="traffic_light" x="663.10" y="1987.60"
+              incLanes="E08_E09_0 E09_E10_0 E09_E13_0"
+              intLanes="" shape="655.0,1979.0 671.0,1979.0 671.0,1995.0 655.0,1995.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- INT_10 : Doha Roundabout -->
+    <junction id="INT_10" type="traffic_light" x="1968.20" y="2078.90"
+              incLanes="E09_E10_0 E10_E11_0 E10_E14_0"
+              intLanes="" shape="1960.0,2070.0 1977.0,2070.0 1977.0,2087.0 1960.0,2087.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- INT_11 : Jerusalem Road Gate -->
+    <junction id="INT_11" type="traffic_light" x="308.60" y="1656.20"
+              incLanes="E10_E11_0 E11_E05_0 E11_E12_0"
+              intLanes="" shape="300.0,1648.0 317.0,1648.0 317.0,1664.0 300.0,1664.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- INT_12 : Artas Road Junction -->
+    <junction id="INT_12" type="traffic_light" x="1091.70" y="2524.80"
+              incLanes="E11_E12_0 E12_E13_0 E12_E15_0"
+              intLanes="" shape="1083.0,2516.0 1100.0,2516.0 1100.0,2532.0 1083.0,2532.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- INT_13 : Old Market Circle -->
+    <junction id="INT_13" type="traffic_light" x="571.30" y="2263.10"
+              incLanes="E12_E13_0 E09_E13_0 E13_E01_0 E13_E14_0"
+              intLanes="" shape="563.0,2255.0 580.0,2255.0 580.0,2271.0 563.0,2271.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- INT_14 : Shepherd's Field Road -->
+    <junction id="INT_14" type="traffic_light" x="2134.50" y="2297.60"
+              incLanes="E13_E14_0 E10_E14_0 E14_E15_0"
+              intLanes="" shape="2126.0,2289.0 2143.0,2289.0 2143.0,2305.0 2126.0,2305.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- INT_15 : Beit Jala South -->
+    <junction id="INT_15" type="traffic_light" x="863.90" y="1641.50"
+              incLanes="E14_E15_0 E12_E15_0 E15_E01_0"
+              intLanes="" shape="855.0,1633.0 872.0,1633.0 872.0,1649.0 855.0,1649.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         EDGES (bidirectional primary arterials)
+    ═══════════════════════════════════════════════════════════════ -->
+    <edge id="E01_E02" from="INT_01" to="INT_02" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="E01_E02_0" index="0" speed="13.89" length="342.5" shape="504.2,2187.6 185.4,1970.3"/>
+    </edge>
+    <edge id="E02_E01" from="INT_02" to="INT_01" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="E02_E01_0" index="0" speed="13.89" length="342.5" shape="185.4,1970.3 504.2,2187.6"/>
+    </edge>
+
+    <edge id="E02_E03" from="INT_02" to="INT_03" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="E02_E03_0" index="0" speed="11.11" length="680.2" shape="185.4,1970.3 814.6,2380.5"/>
+    </edge>
+    <edge id="E03_E02" from="INT_03" to="INT_02" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="E03_E02_0" index="0" speed="11.11" length="680.2" shape="814.6,2380.5 185.4,1970.3"/>
+    </edge>
+
+    <edge id="E03_E04" from="INT_03" to="INT_04" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="E03_E04_0" index="0" speed="13.89" length="742.3" shape="814.6,2380.5 1423.8,1807.2"/>
+    </edge>
+    <edge id="E04_E03" from="INT_04" to="INT_03" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="E04_E03_0" index="0" speed="13.89" length="742.3" shape="1423.8,1807.2 814.6,2380.5"/>
+    </edge>
+
+    <edge id="E04_E05" from="INT_04" to="INT_05" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="E04_E05_0" index="0" speed="11.11" length="596.1" shape="1423.8,1807.2 1821.3,2316.4"/>
+    </edge>
+    <edge id="E05_E04" from="INT_05" to="INT_04" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="E05_E04_0" index="0" speed="11.11" length="596.1" shape="1821.3,2316.4 1423.8,1807.2"/>
+    </edge>
+
+    <edge id="E05_E06" from="INT_05" to="INT_06" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="E05_E06_0" index="0" speed="13.89" length="1570.4" shape="1821.3,2316.4 292.7,2580.1"/>
+    </edge>
+    <edge id="E06_E05" from="INT_06" to="INT_05" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="E06_E05_0" index="0" speed="13.89" length="1570.4" shape="292.7,2580.1 1821.3,2316.4"/>
+    </edge>
+
+    <edge id="E06_E01" from="INT_06" to="INT_01" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="E06_E01_0" index="0" speed="11.11" length="484.7" shape="292.7,2580.1 504.2,2187.6"/>
+    </edge>
+    <edge id="E01_E06" from="INT_01" to="INT_06" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="E01_E06_0" index="0" speed="11.11" length="484.7" shape="504.2,2187.6 292.7,2580.1"/>
+    </edge>
+
+    <edge id="E06_E07" from="INT_06" to="INT_07" type="highway.tertiary"  numLanes="1" speed="8.33"  spreadType="center">
+        <lane id="E06_E07_0" index="0" speed="8.33"  length="491.5" shape="292.7,2580.1 763.4,2780.6"/>
+    </edge>
+    <edge id="E07_E06" from="INT_07" to="INT_06" type="highway.tertiary"  numLanes="1" speed="8.33"  spreadType="center">
+        <lane id="E07_E06_0" index="0" speed="8.33"  length="491.5" shape="763.4,2780.6 292.7,2580.1"/>
+    </edge>
+
+    <edge id="E07_E03" from="INT_07" to="INT_03" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="E07_E03_0" index="0" speed="11.11" length="431.8" shape="763.4,2780.6 814.6,2380.5"/>
+    </edge>
+    <edge id="E03_E07" from="INT_03" to="INT_07" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="E03_E07_0" index="0" speed="11.11" length="431.8" shape="814.6,2380.5 763.4,2780.6"/>
+    </edge>
+
+    <edge id="E07_E08" from="INT_07" to="INT_08" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="E07_E08_0" index="0" speed="13.89" length="529.3" shape="763.4,2780.6 1181.5,2012.4"/>
+    </edge>
+    <edge id="E08_E07" from="INT_08" to="INT_07" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="E08_E07_0" index="0" speed="13.89" length="529.3" shape="1181.5,2012.4 763.4,2780.6"/>
+    </edge>
+
+    <edge id="E04_E08" from="INT_04" to="INT_08" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="E04_E08_0" index="0" speed="11.11" length="290.4" shape="1423.8,1807.2 1181.5,2012.4"/>
+    </edge>
+    <edge id="E08_E04" from="INT_08" to="INT_04" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="E08_E04_0" index="0" speed="11.11" length="290.4" shape="1181.5,2012.4 1423.8,1807.2"/>
+    </edge>
+
+    <edge id="E08_E09" from="INT_08" to="INT_09" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="E08_E09_0" index="0" speed="13.89" length="525.6" shape="1181.5,2012.4 663.1,1987.6"/>
+    </edge>
+    <edge id="E09_E08" from="INT_09" to="INT_08" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="E09_E08_0" index="0" speed="13.89" length="525.6" shape="663.1,1987.6 1181.5,2012.4"/>
+    </edge>
+
+    <edge id="E09_E10" from="INT_09" to="INT_10" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="E09_E10_0" index="0" speed="13.89" length="1321.7" shape="663.1,1987.6 1968.2,2078.9"/>
+    </edge>
+    <edge id="E10_E09" from="INT_10" to="INT_09" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="E10_E09_0" index="0" speed="13.89" length="1321.7" shape="1968.2,2078.9 663.1,1987.6"/>
+    </edge>
+
+    <edge id="E09_E13" from="INT_09" to="INT_13" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="E09_E13_0" index="0" speed="11.11" length="285.8" shape="663.1,1987.6 571.3,2263.1"/>
+    </edge>
+    <edge id="E13_E09" from="INT_13" to="INT_09" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="E13_E09_0" index="0" speed="11.11" length="285.8" shape="571.3,2263.1 663.1,1987.6"/>
+    </edge>
+
+    <edge id="E10_E11" from="INT_10" to="INT_11" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="E10_E11_0" index="0" speed="11.11" length="1731.4" shape="1968.2,2078.9 308.6,1656.2"/>
+    </edge>
+    <edge id="E11_E10" from="INT_11" to="INT_10" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="E11_E10_0" index="0" speed="11.11" length="1731.4" shape="308.6,1656.2 1968.2,2078.9"/>
+    </edge>
+
+    <edge id="E10_E14" from="INT_10" to="INT_14" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="E10_E14_0" index="0" speed="13.89" length="232.1" shape="1968.2,2078.9 2134.5,2297.6"/>
+    </edge>
+    <edge id="E14_E10" from="INT_14" to="INT_10" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="E14_E10_0" index="0" speed="13.89" length="232.1" shape="2134.5,2297.6 1968.2,2078.9"/>
+    </edge>
+
+    <edge id="E11_E05" from="INT_11" to="INT_05" type="highway.tertiary"  numLanes="1" speed="8.33"  spreadType="center">
+        <lane id="E11_E05_0" index="0" speed="8.33"  length="1551.0" shape="308.6,1656.2 1821.3,2316.4"/>
+    </edge>
+    <edge id="E05_E11" from="INT_05" to="INT_11" type="highway.tertiary"  numLanes="1" speed="8.33"  spreadType="center">
+        <lane id="E05_E11_0" index="0" speed="8.33"  length="1551.0" shape="1821.3,2316.4 308.6,1656.2"/>
+    </edge>
+
+    <edge id="E11_E12" from="INT_11" to="INT_12" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="E11_E12_0" index="0" speed="11.11" length="934.7" shape="308.6,1656.2 1091.7,2524.8"/>
+    </edge>
+    <edge id="E12_E11" from="INT_12" to="INT_11" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="E12_E11_0" index="0" speed="11.11" length="934.7" shape="1091.7,2524.8 308.6,1656.2"/>
+    </edge>
+
+    <edge id="E12_E13" from="INT_12" to="INT_13" type="highway.tertiary"  numLanes="1" speed="8.33"  spreadType="center">
+        <lane id="E12_E13_0" index="0" speed="8.33"  length="536.9" shape="1091.7,2524.8 571.3,2263.1"/>
+    </edge>
+    <edge id="E13_E12" from="INT_13" to="INT_12" type="highway.tertiary"  numLanes="1" speed="8.33"  spreadType="center">
+        <lane id="E13_E12_0" index="0" speed="8.33"  length="536.9" shape="571.3,2263.1 1091.7,2524.8"/>
+    </edge>
+
+    <edge id="E12_E15" from="INT_12" to="INT_15" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="E12_E15_0" index="0" speed="11.11" length="930.6" shape="1091.7,2524.8 863.9,1641.5"/>
+    </edge>
+    <edge id="E15_E12" from="INT_15" to="INT_12" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="E15_E12_0" index="0" speed="11.11" length="930.6" shape="863.9,1641.5 1091.7,2524.8"/>
+    </edge>
+
+    <edge id="E13_E01" from="INT_13" to="INT_01" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="E13_E01_0" index="0" speed="13.89" length="316.8" shape="571.3,2263.1 504.2,2187.6"/>
+    </edge>
+    <edge id="E01_E13" from="INT_01" to="INT_13" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="E01_E13_0" index="0" speed="13.89" length="316.8" shape="504.2,2187.6 571.3,2263.1"/>
+    </edge>
+
+    <edge id="E13_E14" from="INT_13" to="INT_14" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="E13_E14_0" index="0" speed="11.11" length="1605.4" shape="571.3,2263.1 2134.5,2297.6"/>
+    </edge>
+    <edge id="E14_E13" from="INT_14" to="INT_13" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="E14_E13_0" index="0" speed="11.11" length="1605.4" shape="2134.5,2297.6 571.3,2263.1"/>
+    </edge>
+
+    <edge id="E14_E15" from="INT_14" to="INT_15" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="E14_E15_0" index="0" speed="13.89" length="1386.8" shape="2134.5,2297.6 863.9,1641.5"/>
+    </edge>
+    <edge id="E15_E14" from="INT_15" to="INT_14" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="E15_E14_0" index="0" speed="13.89" length="1386.8" shape="863.9,1641.5 2134.5,2297.6"/>
+    </edge>
+
+    <edge id="E15_E01" from="INT_15" to="INT_01" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="E15_E01_0" index="0" speed="13.89" length="663.7" shape="863.9,1641.5 504.2,2187.6"/>
+    </edge>
+    <edge id="E01_E15" from="INT_01" to="INT_15" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="E01_E15_0" index="0" speed="13.89" length="663.7" shape="504.2,2187.6 863.9,1641.5"/>
+    </edge>
+
+    <edge id="E06_E02" from="INT_06" to="INT_02" type="highway.tertiary"  numLanes="1" speed="8.33"  spreadType="center">
+        <lane id="E06_E02_0" index="0" speed="8.33"  length="1024.3" shape="292.7,2580.1 185.4,1970.3"/>
+    </edge>
+    <edge id="E02_E06" from="INT_02" to="INT_06" type="highway.tertiary"  numLanes="1" speed="8.33"  spreadType="center">
+        <lane id="E02_E06_0" index="0" speed="8.33"  length="1024.3" shape="185.4,1970.3 292.7,2580.1"/>
+    </edge>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         TRAFFIC LIGHT PROGRAMMES (default 90-second cycle)
+         Adaptive timing is applied by the GA via TraCI at runtime.
+    ═══════════════════════════════════════════════════════════════ -->
+    <tlLogic id="INT_01" type="static" programID="default" offset="0">
+        <phase duration="42" state="GGrrGGrr" name="phase_NS_green"/>
+        <phase duration="3"  state="yyrryyрр" name="phase_NS_yellow"/>
+        <phase duration="42" state="rrGGrrGG" name="phase_EW_green"/>
+        <phase duration="3"  state="rryyyyrr" name="phase_EW_yellow"/>
+    </tlLogic>
+    <tlLogic id="INT_02" type="static" programID="default" offset="10">
+        <phase duration="40" state="GGrrGGrr"/>
+        <phase duration="3"  state="yyrryyrr"/>
+        <phase duration="44" state="rrGGrrGG"/>
+        <phase duration="3"  state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="INT_03" type="static" programID="default" offset="20">
+        <phase duration="38" state="GGrrGGrr"/>
+        <phase duration="3"  state="yyrryyrr"/>
+        <phase duration="46" state="rrGGrrGG"/>
+        <phase duration="3"  state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="INT_04" type="static" programID="default" offset="5">
+        <phase duration="45" state="GGrrGGrr"/>
+        <phase duration="3"  state="yyrryyrr"/>
+        <phase duration="39" state="rrGGrrGG"/>
+        <phase duration="3"  state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="INT_05" type="static" programID="default" offset="15">
+        <phase duration="42" state="GGrrGGrr"/>
+        <phase duration="3"  state="yyrryyrr"/>
+        <phase duration="42" state="rrGGrrGG"/>
+        <phase duration="3"  state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="INT_06" type="static" programID="default" offset="0">
+        <phase duration="36" state="GGGrGGGr"/>
+        <phase duration="3"  state="yyyryyyr"/>
+        <phase duration="48" state="rrrGrrrG"/>
+        <phase duration="3"  state="rrryrrry"/>
+    </tlLogic>
+    <tlLogic id="INT_07" type="static" programID="default" offset="8">
+        <phase duration="40" state="GGrrGGrr"/>
+        <phase duration="3"  state="yyrryyrr"/>
+        <phase duration="44" state="rrGGrrGG"/>
+        <phase duration="3"  state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="INT_08" type="static" programID="default" offset="12">
+        <phase duration="42" state="GGrrGGrr"/>
+        <phase duration="3"  state="yyrryyrr"/>
+        <phase duration="42" state="rrGGrrGG"/>
+        <phase duration="3"  state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="INT_09" type="static" programID="default" offset="0">
+        <phase duration="44" state="GGGrGGGr"/>
+        <phase duration="3"  state="yyyryyyr"/>
+        <phase duration="40" state="rrrGrrrG"/>
+        <phase duration="3"  state="rrryrrry"/>
+    </tlLogic>
+    <tlLogic id="INT_10" type="static" programID="default" offset="18">
+        <phase duration="42" state="GGGrGGGr"/>
+        <phase duration="3"  state="yyyryyyr"/>
+        <phase duration="42" state="rrrGrrrG"/>
+        <phase duration="3"  state="rrryrrry"/>
+    </tlLogic>
+    <tlLogic id="INT_11" type="static" programID="default" offset="6">
+        <phase duration="38" state="GGrrGGrr"/>
+        <phase duration="3"  state="yyrryyrr"/>
+        <phase duration="46" state="rrGGrrGG"/>
+        <phase duration="3"  state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="INT_12" type="static" programID="default" offset="14">
+        <phase duration="40" state="GGrrGGrr"/>
+        <phase duration="3"  state="yyrryyrr"/>
+        <phase duration="44" state="rrGGrrGG"/>
+        <phase duration="3"  state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="INT_13" type="static" programID="default" offset="0">
+        <phase duration="42" state="GGGrGGGr"/>
+        <phase duration="3"  state="yyyryyyr"/>
+        <phase duration="42" state="rrrGrrrG"/>
+        <phase duration="3"  state="rrryrrry"/>
+    </tlLogic>
+    <tlLogic id="INT_14" type="static" programID="default" offset="10">
+        <phase duration="44" state="GGrrGGrr"/>
+        <phase duration="3"  state="yyrryyrr"/>
+        <phase duration="40" state="rrGGrrGG"/>
+        <phase duration="3"  state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="INT_15" type="static" programID="default" offset="4">
+        <phase duration="42" state="GGrrGGrr"/>
+        <phase duration="3"  state="yyrryyrr"/>
+        <phase duration="42" state="rrGGrrGG"/>
+        <phase duration="3"  state="rryyrryy"/>
+    </tlLogic>
+
+</net>
