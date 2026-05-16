@@ -3,16 +3,22 @@ Edge-Assisted Genetic Algorithm for Dynamic Multi-Objective Urban Routing — Da
 # Edge-Assisted Genetic Algorithm for Dynamic Multi-Objective Urban Routing — Dataset & Code Repository
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![DOI](https://img.shields.io/badge/DOI-10.48084%2Fetasr.XXXX-blue)](https://doi.org/10.48084/etasr.XXXX)
+[![DOI](https://img.shields.io/badge/DOI-10.48084%2Fetasr.XXXX-blue)](https://doi.org/10.48084/etasr.XXXX
+        
+        )
 
 ## Overview
 
 This repository accompanies the paper:
 
 > **Edge-Assisted Genetic Algorithm for Dynamic Multi-Objective Urban Routing**  
-> Suhail Odeh, Mahmoud Obaid*, Rafik Lasari, Murad Alrajab, Hebatullah Khattab, Ammar Qarariyah, Djemel Ziou  
+> Suhail Odeh, Mahmoud Obaid*, Rafik Lasari, Murad Al-Rajab, Hebatullah Khattab, Ammar Qarariyah, Djemel Ziou  
 > *Engineering, Technology & Applied Science Research*, Vol. XX, No. X, 20XX  
-> DOI: [10.48084/etasr.XXXX](https://doi.org/10.48084/etasr.XXXX)
+> DOI: [10.48084/etasr.XXXX
+        
+        ](https://doi.org/10.48084/etasr.XXXX
+        
+        )
 
 It provides the real-world traffic dataset collected from Bethlehem City (Palestine), SUMO simulation scenarios, and the NSGA-II / Rolling-Horizon Optimization source code used in the study.
 
