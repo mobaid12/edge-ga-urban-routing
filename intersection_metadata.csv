@@ -1,0 +1,16 @@
+intersection_id,intersection_name,latitude,longitude,num_approaches,signal_controlled,road_class,speed_limit_kmh,link_capacity_vph,notes
+INT_01,Manger Square,31.7054,35.2024,3,TRUE,secondary,60,1363,Bethlehem urban network node INT_01
+INT_02,Pope Paul VI Street / Hebron Rd,31.702,35.199,4,TRUE,secondary,60,873,Bethlehem urban network node INT_02
+INT_03,Star Street Junction,31.708,35.206,3,TRUE,primary,50,1365,Bethlehem urban network node INT_03
+INT_04,Rachel's Tomb Rd,31.701,35.21,4,TRUE,primary,50,958,Bethlehem urban network node INT_04
+INT_05,Beit Sahour Rd North,31.712,35.203,4,TRUE,primary,60,1563,Bethlehem urban network node INT_05
+INT_06,Caritas Street,31.709,35.197,3,TRUE,secondary,40,1101,Bethlehem urban network node INT_06
+INT_07,Al-Farahieh Rd,31.7035,35.208,4,TRUE,primary,60,899,Bethlehem urban network node INT_07
+INT_08,Beit Jala Junction,31.699,35.205,4,TRUE,primary,60,1217,Bethlehem urban network node INT_08
+INT_09,Freres Street,31.706,35.2,4,TRUE,secondary,40,1153,Bethlehem urban network node INT_09
+INT_10,Doha Roundabout,31.71,35.207,4,TRUE,primary,60,1563,Bethlehem urban network node INT_10
+INT_11,Jerusalem Rd Gate,31.7015,35.196,4,TRUE,primary,60,980,Bethlehem urban network node INT_11
+INT_12,Artas Rd Junction,31.7075,35.211,3,TRUE,secondary,50,1038,Bethlehem urban network node INT_12
+INT_13,Old Market Circle,31.704,35.2045,4,TRUE,primary,40,1120,Bethlehem urban network node INT_13
+INT_14,Shepherd's Field Rd,31.713,35.2,4,TRUE,primary,50,1091,Bethlehem urban network node INT_14
+INT_15,Beit Jala South,31.6975,35.207,4,TRUE,secondary,50,1327,Bethlehem urban network node INT_15
