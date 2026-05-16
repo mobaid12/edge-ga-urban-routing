@@ -35,7 +35,6 @@ It provides the real-world traffic dataset collected from Bethlehem City (Palest
 ├── sumo_scenarios/
 │   ├── bethlehem_network.net.xml      # SUMO road network – Bethlehem
 │   ├── routes_baseline.rou.xml        # Vehicle routes – baseline scenario
-│   └── *.sumocfg                      # SUMO configuration files per scenario
 └── README.md
 ```
 
