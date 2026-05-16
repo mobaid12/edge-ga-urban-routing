@@ -6,7 +6,7 @@
   Generated from OpenStreetMap data (September 2024) using SUMO netconvert.
 
   Paper: "Edge-Assisted Genetic Algorithm for Dynamic Multi-Objective Urban Routing"
-  Repository: https://github.com/MahmoudObaid-AAUP/edge-ga-urban-routing
+  Repository: https://github.com/mobaid12/edge-ga-urban-routing.git.
 
   Network coverage: 15 major signalised intersections in the Bethlehem urban area.
   Coordinate system: WGS84 (EPSG:4326), projected to UTM Zone 36N for simulation.
