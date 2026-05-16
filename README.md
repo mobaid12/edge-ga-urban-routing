@@ -12,13 +12,7 @@ This repository accompanies the paper:
 > **Edge-Assisted Genetic Algorithm for Dynamic Multi-Objective Urban Routing**  
 > Suhail Odeh, Mahmoud Obaid*, Rafik Lasari, Murad Al-Rajab, Hebatullah Khattab, Ammar Qarariyah, Djemel Ziou  
 > *Engineering, Technology & Applied Science Research*, Vol. XX, No. X, 20XX  
-> DOI: [10.48084/etasr.XXXX
-        
-        ](https://doi.org/10.48084/etasr.XXXX
-        
-        
-        
-        )
+
 
 It provides the real-world traffic dataset collected from Bethlehem City (Palestine), SUMO simulation scenarios, and the NSGA-II / Rolling-Horizon Optimization source code used in the study.
 
