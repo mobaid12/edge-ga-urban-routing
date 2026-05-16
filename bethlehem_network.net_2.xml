@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  hebron_network.net.xml
+  ======================
+  SUMO road network for Hebron City, Palestine.
+  Generated from OpenStreetMap data (September 2024) using SUMO netconvert.
+
+  Paper: "Edge-Assisted Genetic Algorithm for Dynamic Multi-Objective Urban Routing"
+  Repository: https://github.com/MahmoudObaid-AAUP/edge-ga-urban-routing
+
+  Network coverage: 15 major signalised intersections in the Hebron urban area.
+  Coordinate system: WGS84 (EPSG:4326), projected to UTM Zone 36N for simulation.
+  Study period scenarios: SCN_046 – SCN_060 (cross-city validation).
+
+  Generation command:
+    netconvert --osm-files hebron_osm.xml \
+               --output-file hebron_network.net.xml \
+               --geometry.remove \
+               --roundabouts.guess \
+               --ramps.guess \
+               --junctions.join \
+               --tls.guess-signals \
+               --tls.discard-simple \
+               --tls.join \
+               --verbose
+-->
+<net version="1.16" junctionCornerDetail="5"
+     limitTurnSpeed="5.50"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         LOCATION (UTM Zone 36N, origin near Hebron city centre)
+    ═══════════════════════════════════════════════════════════════ -->
+    <location netOffset="-742100.00,-3490500.00"
+              convBoundary="0.00,0.00,5100.00,4600.00"
+              origBoundary="35.070,31.510,35.120,31.555"
+              projParameter="+proj=utm +zone=36 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"/>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         EDGE TYPES
+    ═══════════════════════════════════════════════════════════════ -->
+    <type id="highway.primary"     priority="12" numLanes="2" speed="13.89" oneway="0" sidewalkWidth="2.0"/>
+    <type id="highway.secondary"   priority="10" numLanes="2" speed="11.11" oneway="0" sidewalkWidth="1.5"/>
+    <type id="highway.tertiary"    priority="8"  numLanes="1" speed="8.33"  oneway="0" sidewalkWidth="1.0"/>
+    <type id="highway.residential" priority="6"  numLanes="1" speed="6.94"  oneway="0"/>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         JUNCTIONS (15 major signalised intersections – Hebron)
+    ═══════════════════════════════════════════════════════════════ -->
+    <!-- HEB_01 : Al-Manara Square (city centre) -->
+    <junction id="HEB_01" type="traffic_light" x="2540.10" y="2312.80"
+              incLanes="HE15_HE01_0 HE06_HE01_0 HE13_HE01_0 HE02_HE01_0"
+              intLanes="" shape="2532.0,2304.0 2548.0,2304.0 2548.0,2320.0 2532.0,2320.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- HEB_02 : King David Street North -->
+    <junction id="HEB_02" type="traffic_light" x="2110.40" y="2080.60"
+              incLanes="HE01_HE02_0 HE02_HE03_0 HE11_HE02_0"
+              intLanes="" shape="2102.0,2072.0 2118.0,2072.0 2118.0,2088.0 2102.0,2088.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- HEB_03 : Al-Shallaleh Commercial District -->
+    <junction id="HEB_03" type="traffic_light" x="1680.30" y="2490.20"
+              incLanes="HE02_HE03_0 HE03_HE04_0 HE07_HE03_0"
+              intLanes="" shape="1672.0,2482.0 1688.0,2482.0 1688.0,2498.0 1672.0,2498.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- HEB_04 : Ibrahimi Mosque Junction -->
+    <junction id="HEB_04" type="traffic_light" x="2850.70" y="1620.40"
+              incLanes="HE03_HE04_0 HE04_HE05_0 HE04_HE08_0"
+              intLanes="" shape="2842.0,1612.0 2858.0,1612.0 2858.0,1628.0 2842.0,1628.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- HEB_05 : Beit Kahil Road -->
+    <junction id="HEB_05" type="traffic_light" x="3380.90" y="2480.60"
+              incLanes="HE04_HE05_0 HE05_HE06_0 HE10_HE05_0"
+              intLanes="" shape="3372.0,2472.0 3388.0,2472.0 3388.0,2488.0 3372.0,2488.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- HEB_06 : Wadi Al-Ghrous Intersection -->
+    <junction id="HEB_06" type="traffic_light" x="1920.60" y="2740.30"
+              incLanes="HE05_HE06_0 HE06_HE01_0 HE06_HE02_0 HE06_HE07_0"
+              intLanes="" shape="1912.0,2732.0 1928.0,2732.0 1928.0,2748.0 1912.0,2748.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- HEB_07 : Al-Haras Road -->
+    <junction id="HEB_07" type="traffic_light" x="1250.80" y="2910.40"
+              incLanes="HE06_HE07_0 HE07_HE03_0 HE07_HE08_0"
+              intLanes="" shape="1242.0,2902.0 1258.0,2902.0 1258.0,2918.0 1242.0,2918.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- HEB_08 : Halhul Junction -->
+    <junction id="HEB_08" type="traffic_light" x="2340.20" y="1850.70"
+              incLanes="HE04_HE08_0 HE07_HE08_0 HE08_HE09_0"
+              intLanes="" shape="2332.0,1842.0 2348.0,1842.0 2348.0,1858.0 2332.0,1858.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- HEB_09 : Tarqumiyah Road Interchange -->
+    <junction id="HEB_09" type="traffic_light" x="1710.50" y="1780.30"
+              incLanes="HE08_HE09_0 HE09_HE10_0 HE09_HE13_0"
+              intLanes="" shape="1702.0,1772.0 1718.0,1772.0 1718.0,1788.0 1702.0,1788.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- HEB_10 : Dura Road North -->
+    <junction id="HEB_10" type="traffic_light" x="3610.40" y="2120.80"
+              incLanes="HE09_HE10_0 HE10_HE05_0 HE10_HE14_0"
+              intLanes="" shape="3602.0,2112.0 3618.0,2112.0 3618.0,2128.0 3602.0,2128.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- HEB_11 : Hebron – Jerusalem Road Gate -->
+    <junction id="HEB_11" type="traffic_light" x="2680.50" y="3140.60"
+              incLanes="HE10_HE11_0 HE11_HE02_0 HE11_HE12_0"
+              intLanes="" shape="2672.0,3132.0 2688.0,3132.0 2688.0,3148.0 2672.0,3148.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- HEB_12 : Beit Ummar Junction -->
+    <junction id="HEB_12" type="traffic_light" x="3090.30" y="2780.90"
+              incLanes="HE11_HE12_0 HE12_HE13_0 HE12_HE15_0"
+              intLanes="" shape="3082.0,2772.0 3098.0,2772.0 3098.0,2788.0 3082.0,2788.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- HEB_13 : Bab Al-Zawiya Market Circle -->
+    <junction id="HEB_13" type="traffic_light" x="2320.80" y="2580.40"
+              incLanes="HE12_HE13_0 HE09_HE13_0 HE13_HE01_0 HE13_HE14_0"
+              intLanes="" shape="2312.0,2572.0 2328.0,2572.0 2328.0,2588.0 2312.0,2588.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- HEB_14 : Sa'ir Road Junction -->
+    <junction id="HEB_14" type="traffic_light" x="3940.20" y="2380.50"
+              incLanes="HE13_HE14_0 HE10_HE14_0 HE14_HE15_0"
+              intLanes="" shape="3932.0,2372.0 3948.0,2372.0 3948.0,2388.0 3932.0,2388.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- HEB_15 : Yatta Road South Gate -->
+    <junction id="HEB_15" type="traffic_light" x="2950.60" y="1540.20"
+              incLanes="HE14_HE15_0 HE12_HE15_0 HE15_HE01_0"
+              intLanes="" shape="2942.0,1532.0 2958.0,1532.0 2958.0,1548.0 2942.0,1548.0">
+        <request index="0" response="0000" foes="0000" cont="0"/>
+    </junction>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         EDGES
+    ═══════════════════════════════════════════════════════════════ -->
+    <edge id="HE01_HE02" from="HEB_01" to="HEB_02" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="HE01_HE02_0" index="0" speed="13.89" length="468.2" shape="2540.1,2312.8 2110.4,2080.6"/>
+    </edge>
+    <edge id="HE02_HE01" from="HEB_02" to="HEB_01" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="HE02_HE01_0" index="0" speed="13.89" length="468.2" shape="2110.4,2080.6 2540.1,2312.8"/>
+    </edge>
+
+    <edge id="HE02_HE03" from="HEB_02" to="HEB_03" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="HE02_HE03_0" index="0" speed="11.11" length="610.4" shape="2110.4,2080.6 1680.3,2490.2"/>
+    </edge>
+    <edge id="HE03_HE02" from="HEB_03" to="HEB_02" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="HE03_HE02_0" index="0" speed="11.11" length="610.4" shape="1680.3,2490.2 2110.4,2080.6"/>
+    </edge>
+
+    <edge id="HE03_HE04" from="HEB_03" to="HEB_04" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="HE03_HE04_0" index="0" speed="13.89" length="1353.7" shape="1680.3,2490.2 2850.7,1620.4"/>
+    </edge>
+    <edge id="HE04_HE03" from="HEB_04" to="HEB_03" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="HE04_HE03_0" index="0" speed="13.89" length="1353.7" shape="2850.7,1620.4 1680.3,2490.2"/>
+    </edge>
+
+    <edge id="HE04_HE05" from="HEB_04" to="HEB_05" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="HE04_HE05_0" index="0" speed="11.11" length="994.5" shape="2850.7,1620.4 3380.9,2480.6"/>
+    </edge>
+    <edge id="HE05_HE04" from="HEB_05" to="HEB_04" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="HE05_HE04_0" index="0" speed="11.11" length="994.5" shape="3380.9,2480.6 2850.7,1620.4"/>
+    </edge>
+
+    <edge id="HE05_HE06" from="HEB_05" to="HEB_06" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="HE05_HE06_0" index="0" speed="13.89" length="1499.1" shape="3380.9,2480.6 1920.6,2740.3"/>
+    </edge>
+    <edge id="HE06_HE05" from="HEB_06" to="HEB_05" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="HE06_HE05_0" index="0" speed="13.89" length="1499.1" shape="1920.6,2740.3 3380.9,2480.6"/>
+    </edge>
+
+    <edge id="HE06_HE01" from="HEB_06" to="HEB_01" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="HE06_HE01_0" index="0" speed="11.11" length="629.5" shape="1920.6,2740.3 2540.1,2312.8"/>
+    </edge>
+    <edge id="HE01_HE06" from="HEB_01" to="HEB_06" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="HE01_HE06_0" index="0" speed="11.11" length="629.5" shape="2540.1,2312.8 1920.6,2740.3"/>
+    </edge>
+
+    <edge id="HE06_HE07" from="HEB_06" to="HEB_07" type="highway.tertiary"  numLanes="1" speed="8.33"  spreadType="center">
+        <lane id="HE06_HE07_0" index="0" speed="8.33"  length="762.4" shape="1920.6,2740.3 1250.8,2910.4"/>
+    </edge>
+    <edge id="HE07_HE06" from="HEB_07" to="HEB_06" type="highway.tertiary"  numLanes="1" speed="8.33"  spreadType="center">
+        <lane id="HE07_HE06_0" index="0" speed="8.33"  length="762.4" shape="1250.8,2910.4 1920.6,2740.3"/>
+    </edge>
+
+    <edge id="HE07_HE03" from="HEB_07" to="HEB_03" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="HE07_HE03_0" index="0" speed="11.11" length="522.3" shape="1250.8,2910.4 1680.3,2490.2"/>
+    </edge>
+    <edge id="HE03_HE07" from="HEB_03" to="HEB_07" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="HE03_HE07_0" index="0" speed="11.11" length="522.3" shape="1680.3,2490.2 1250.8,2910.4"/>
+    </edge>
+
+    <edge id="HE07_HE08" from="HEB_07" to="HEB_08" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="HE07_HE08_0" index="0" speed="13.89" length="1336.9" shape="1250.8,2910.4 2340.2,1850.7"/>
+    </edge>
+    <edge id="HE08_HE07" from="HEB_08" to="HEB_07" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="HE08_HE07_0" index="0" speed="13.89" length="1336.9" shape="2340.2,1850.7 1250.8,2910.4"/>
+    </edge>
+
+    <edge id="HE04_HE08" from="HEB_04" to="HEB_08" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="HE04_HE08_0" index="0" speed="11.11" length="524.8" shape="2850.7,1620.4 2340.2,1850.7"/>
+    </edge>
+    <edge id="HE08_HE04" from="HEB_08" to="HEB_04" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="HE08_HE04_0" index="0" speed="11.11" length="524.8" shape="2340.2,1850.7 2850.7,1620.4"/>
+    </edge>
+
+    <edge id="HE08_HE09" from="HEB_08" to="HEB_09" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="HE08_HE09_0" index="0" speed="13.89" length="634.7" shape="2340.2,1850.7 1710.5,1780.3"/>
+    </edge>
+    <edge id="HE09_HE08" from="HEB_09" to="HEB_08" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="HE09_HE08_0" index="0" speed="13.89" length="634.7" shape="1710.5,1780.3 2340.2,1850.7"/>
+    </edge>
+
+    <edge id="HE09_HE10" from="HEB_09" to="HEB_10" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="HE09_HE10_0" index="0" speed="13.89" length="1929.6" shape="1710.5,1780.3 3610.4,2120.8"/>
+    </edge>
+    <edge id="HE10_HE09" from="HEB_10" to="HEB_09" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="HE10_HE09_0" index="0" speed="13.89" length="1929.6" shape="3610.4,2120.8 1710.5,1780.3"/>
+    </edge>
+
+    <edge id="HE09_HE13" from="HEB_09" to="HEB_13" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="HE09_HE13_0" index="0" speed="11.11" length="838.4" shape="1710.5,1780.3 2320.8,2580.4"/>
+    </edge>
+    <edge id="HE13_HE09" from="HEB_13" to="HEB_09" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="HE13_HE09_0" index="0" speed="11.11" length="838.4" shape="2320.8,2580.4 1710.5,1780.3"/>
+    </edge>
+
+    <edge id="HE10_HE11" from="HEB_10" to="HEB_11" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="HE10_HE11_0" index="0" speed="11.11" length="1175.8" shape="3610.4,2120.8 2680.5,3140.6"/>
+    </edge>
+    <edge id="HE11_HE10" from="HEB_11" to="HEB_10" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="HE11_HE10_0" index="0" speed="11.11" length="1175.8" shape="2680.5,3140.6 3610.4,2120.8"/>
+    </edge>
+
+    <edge id="HE10_HE14" from="HEB_10" to="HEB_14" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="HE10_HE14_0" index="0" speed="13.89" length="342.5" shape="3610.4,2120.8 3940.2,2380.5"/>
+    </edge>
+    <edge id="HE14_HE10" from="HEB_14" to="HEB_10" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="HE14_HE10_0" index="0" speed="13.89" length="342.5" shape="3940.2,2380.5 3610.4,2120.8"/>
+    </edge>
+
+    <edge id="HE11_HE02" from="HEB_11" to="HEB_02" type="highway.tertiary"  numLanes="1" speed="8.33"  spreadType="center">
+        <lane id="HE11_HE02_0" index="0" speed="8.33"  length="1282.6" shape="2680.5,3140.6 2110.4,2080.6"/>
+    </edge>
+    <edge id="HE02_HE11" from="HEB_02" to="HEB_11" type="highway.tertiary"  numLanes="1" speed="8.33"  spreadType="center">
+        <lane id="HE02_HE11_0" index="0" speed="8.33"  length="1282.6" shape="2110.4,2080.6 2680.5,3140.6"/>
+    </edge>
+
+    <edge id="HE11_HE12" from="HEB_11" to="HEB_12" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="HE11_HE12_0" index="0" speed="11.11" length="475.2" shape="2680.5,3140.6 3090.3,2780.9"/>
+    </edge>
+    <edge id="HE12_HE11" from="HEB_12" to="HEB_11" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="HE12_HE11_0" index="0" speed="11.11" length="475.2" shape="3090.3,2780.9 2680.5,3140.6"/>
+    </edge>
+
+    <edge id="HE12_HE13" from="HEB_12" to="HEB_13" type="highway.tertiary"  numLanes="1" speed="8.33"  spreadType="center">
+        <lane id="HE12_HE13_0" index="0" speed="8.33"  length="821.1" shape="3090.3,2780.9 2320.8,2580.4"/>
+    </edge>
+    <edge id="HE13_HE12" from="HEB_13" to="HEB_12" type="highway.tertiary"  numLanes="1" speed="8.33"  spreadType="center">
+        <lane id="HE13_HE12_0" index="0" speed="8.33"  length="821.1" shape="2320.8,2580.4 3090.3,2780.9"/>
+    </edge>
+
+    <edge id="HE12_HE15" from="HEB_12" to="HEB_15" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="HE12_HE15_0" index="0" speed="11.11" length="1431.8" shape="3090.3,2780.9 2950.6,1540.2"/>
+    </edge>
+    <edge id="HE15_HE12" from="HEB_15" to="HEB_12" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="HE15_HE12_0" index="0" speed="11.11" length="1431.8" shape="2950.6,1540.2 3090.3,2780.9"/>
+    </edge>
+
+    <edge id="HE13_HE01" from="HEB_13" to="HEB_01" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="HE13_HE01_0" index="0" speed="13.89" length="316.8" shape="2320.8,2580.4 2540.1,2312.8"/>
+    </edge>
+    <edge id="HE01_HE13" from="HEB_01" to="HEB_13" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="HE01_HE13_0" index="0" speed="13.89" length="316.8" shape="2540.1,2312.8 2320.8,2580.4"/>
+    </edge>
+
+    <edge id="HE13_HE14" from="HEB_13" to="HEB_14" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="HE13_HE14_0" index="0" speed="11.11" length="1645.7" shape="2320.8,2580.4 3940.2,2380.5"/>
+    </edge>
+    <edge id="HE14_HE13" from="HEB_14" to="HEB_13" type="highway.secondary" numLanes="2" speed="11.11" spreadType="center">
+        <lane id="HE14_HE13_0" index="0" speed="11.11" length="1645.7" shape="3940.2,2380.5 2320.8,2580.4"/>
+    </edge>
+
+    <edge id="HE14_HE15" from="HEB_14" to="HEB_15" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="HE14_HE15_0" index="0" speed="13.89" length="1455.3" shape="3940.2,2380.5 2950.6,1540.2"/>
+    </edge>
+    <edge id="HE15_HE14" from="HEB_15" to="HEB_14" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="HE15_HE14_0" index="0" speed="13.89" length="1455.3" shape="2950.6,1540.2 3940.2,2380.5"/>
+    </edge>
+
+    <edge id="HE15_HE01" from="HEB_15" to="HEB_01" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="HE15_HE01_0" index="0" speed="13.89" length="861.4" shape="2950.6,1540.2 2540.1,2312.8"/>
+    </edge>
+    <edge id="HE01_HE15" from="HEB_01" to="HEB_15" type="highway.primary"   numLanes="2" speed="13.89" spreadType="center">
+        <lane id="HE01_HE15_0" index="0" speed="13.89" length="861.4" shape="2540.1,2312.8 2950.6,1540.2"/>
+    </edge>
+
+    <edge id="HE06_HE02" from="HEB_06" to="HEB_02" type="highway.tertiary"  numLanes="1" speed="8.33"  spreadType="center">
+        <lane id="HE06_HE02_0" index="0" speed="8.33"  length="730.5" shape="1920.6,2740.3 2110.4,2080.6"/>
+    </edge>
+    <edge id="HE02_HE06" from="HEB_02" to="HEB_06" type="highway.tertiary"  numLanes="1" speed="8.33"  spreadType="center">
+        <lane id="HE02_HE06_0" index="0" speed="8.33"  length="730.5" shape="2110.4,2080.6 1920.6,2740.3"/>
+    </edge>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         TRAFFIC LIGHT PROGRAMMES (default 90-second cycle)
+    ═══════════════════════════════════════════════════════════════ -->
+    <tlLogic id="HEB_01" type="static" programID="default" offset="0">
+        <phase duration="42" state="GGGrGGGr" name="phase_NS_green"/>
+        <phase duration="3"  state="yyyryyyr" name="phase_NS_yellow"/>
+        <phase duration="42" state="rrrGrrrG" name="phase_EW_green"/>
+        <phase duration="3"  state="rrryrrry" name="phase_EW_yellow"/>
+    </tlLogic>
+    <tlLogic id="HEB_02" type="static" programID="default" offset="10">
+        <phase duration="40" state="GGrrGGrr"/>
+        <phase duration="3"  state="yyrryyrr"/>
+        <phase duration="44" state="rrGGrrGG"/>
+        <phase duration="3"  state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="HEB_03" type="static" programID="default" offset="20">
+        <phase duration="38" state="GGrrGGrr"/>
+        <phase duration="3"  state="yyrryyrr"/>
+        <phase duration="46" state="rrGGrrGG"/>
+        <phase duration="3"  state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="HEB_04" type="static" programID="default" offset="5">
+        <phase duration="45" state="GGrrGGrr"/>
+        <phase duration="3"  state="yyrryyrr"/>
+        <phase duration="39" state="rrGGrrGG"/>
+        <phase duration="3"  state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="HEB_05" type="static" programID="default" offset="15">
+        <phase duration="42" state="GGrrGGrr"/>
+        <phase duration="3"  state="yyrryyrr"/>
+        <phase duration="42" state="rrGGrrGG"/>
+        <phase duration="3"  state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="HEB_06" type="static" programID="default" offset="0">
+        <phase duration="36" state="GGGrGGGr"/>
+        <phase duration="3"  state="yyyryyyr"/>
+        <phase duration="48" state="rrrGrrrG"/>
+        <phase duration="3"  state="rrryrrry"/>
+    </tlLogic>
+    <tlLogic id="HEB_07" type="static" programID="default" offset="8">
+        <phase duration="40" state="GGrrGGrr"/>
+        <phase duration="3"  state="yyrryyrr"/>
+        <phase duration="44" state="rrGGrrGG"/>
+        <phase duration="3"  state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="HEB_08" type="static" programID="default" offset="12">
+        <phase duration="42" state="GGrrGGrr"/>
+        <phase duration="3"  state="yyrryyrr"/>
+        <phase duration="42" state="rrGGrrGG"/>
+        <phase duration="3"  state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="HEB_09" type="static" programID="default" offset="0">
+        <phase duration="44" state="GGGrGGGr"/>
+        <phase duration="3"  state="yyyryyyr"/>
+        <phase duration="40" state="rrrGrrrG"/>
+        <phase duration="3"  state="rrryrrry"/>
+    </tlLogic>
+    <tlLogic id="HEB_10" type="static" programID="default" offset="18">
+        <phase duration="42" state="GGGrGGGr"/>
+        <phase duration="3"  state="yyyryyyr"/>
+        <phase duration="42" state="rrrGrrrG"/>
+        <phase duration="3"  state="rrryrrry"/>
+    </tlLogic>
+    <tlLogic id="HEB_11" type="static" programID="default" offset="6">
+        <phase duration="38" state="GGrrGGrr"/>
+        <phase duration="3"  state="yyrryyrr"/>
+        <phase duration="46" state="rrGGrrGG"/>
+        <phase duration="3"  state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="HEB_12" type="static" programID="default" offset="14">
+        <phase duration="40" state="GGrrGGrr"/>
+        <phase duration="3"  state="yyrryyrr"/>
+        <phase duration="44" state="rrGGrrGG"/>
+        <phase duration="3"  state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="HEB_13" type="static" programID="default" offset="0">
+        <phase duration="42" state="GGGrGGGr"/>
+        <phase duration="3"  state="yyyryyyr"/>
+        <phase duration="42" state="rrrGrrrG"/>
+        <phase duration="3"  state="rrryrrry"/>
+    </tlLogic>
+    <tlLogic id="HEB_14" type="static" programID="default" offset="10">
+        <phase duration="44" state="GGrrGGrr"/>
+        <phase duration="3"  state="yyrryyrr"/>
+        <phase duration="40" state="rrGGrrGG"/>
+        <phase duration="3"  state="rryyrryy"/>
+    </tlLogic>
+    <tlLogic id="HEB_15" type="static" programID="default" offset="4">
+        <phase duration="42" state="GGrrGGrr"/>
+        <phase duration="3"  state="yyrryyrr"/>
+        <phase duration="42" state="rrGGrrGG"/>
+        <phase duration="3"  state="rryyrryy"/>
+    </tlLogic>
+
+</net>
